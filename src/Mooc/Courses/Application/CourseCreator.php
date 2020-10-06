@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Mooc\Courses\Application;
 
+use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
 
 final class CourseCreator
