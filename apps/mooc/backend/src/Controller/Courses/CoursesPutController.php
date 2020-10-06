@@ -9,8 +9,20 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class CoursesPutController
 {
+    private $creator;
+
+    public function __construct(CourseCreator $creator)
+    {
+        $this->creator = $creator;
+    }
+
     public function __invoke(string $id, Request $request): Response
     {
-        return new Response('', 201);
+        $name     = $request->get('name');
+        $duration = $request->get('duration');
+
+        $this->creator->create(%$id, $name, $duration);
+
+        return new Response('', Response::HTTP_CREATED);
     }
 }
