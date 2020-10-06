@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Apps\Mooc\Backend\Controller\HealthCheck;
 
-use CodelyTv\Shared\Infrastructure\RandomNumberGenerator;
+use CodelyTv\Shared\Domain\RandomNumberGenerator;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,8 +22,8 @@ final class HealthCheckGetController
     {
         return new JsonResponse(
             [
-                'status' => 'ok',
-                'number' => $this->generator->generate()
+                'mooc-backend' => 'ok',
+                'rand'         => $this->generator->generate()
             ]
         );
     }
