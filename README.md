@@ -12,3 +12,6 @@
 
 # Command for run tests of mooc backend application
 `./vendor/bin/behat -p mooc_backend`
+
+# Command for add phpunit:
+`composer require --dev phpunit/phpunit`
