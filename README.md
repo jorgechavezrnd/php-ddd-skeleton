@@ -7,17 +7,20 @@
 ## Usage
 `make start-local`
 
-# Command for create this base project:
+# Command for create this base project
 `composer create-project codelytv/ddd-skeleton:0.4.0`
 
 # Command for run tests of mooc backend application
 `./vendor/bin/behat -p mooc_backend`
 
-# Command for add phpunit:
+# Command for add phpunit
 `composer require --dev phpunit/phpunit`
 
-# Command for add UUID dependency:
+# Command for run unit and integration tests
+`./vendor/bin/phpunit`
+
+# Command for add UUID dependency
 `composer require ramsey/uuid`
 
-# Command for add faker dependency:
+# Command for add faker dependency
 `composer require --dev fzaninotto/faker`
