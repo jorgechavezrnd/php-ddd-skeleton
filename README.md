@@ -18,3 +18,6 @@
 
 # Command for add UUID dependency:
 `composer require ramsey/uuid`
+
+# Command for add faker dependency:
+`composer require --dev fzaninotto/faker`
