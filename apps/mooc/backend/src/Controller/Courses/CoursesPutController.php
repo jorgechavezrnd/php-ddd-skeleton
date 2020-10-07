@@ -20,10 +20,13 @@ final class CoursesPutController
 
     public function __invoke(string $id, Request $request): Response
     {
-        $name     = $request->get('name');
-        $duration = $request->get('duration');
-
-        $this->creator->__invoke(new CreateCourseRequest($id, $name, $duration));
+        $this->creator->__invoke(
+            new CreateCourseRequest(
+                $id,
+                $request->get('name'),
+                $request->get('duration')
+            )
+        );
 
         return new Response('', Response::HTTP_CREATED);
     }
