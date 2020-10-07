@@ -15,3 +15,6 @@
 
 # Command for add phpunit:
 `composer require --dev phpunit/phpunit`
+
+# Command for add UUID dependency:
+`composer require ramsey/uuid`
