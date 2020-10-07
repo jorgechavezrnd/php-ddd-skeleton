@@ -24,3 +24,7 @@
 
 # Command for add faker dependency
 `composer require --dev fzaninotto/faker`
+
+# Commands for add doctrine dependencies
+`composer require doctrine/dbal`
+`composer require doctrine/orm`
