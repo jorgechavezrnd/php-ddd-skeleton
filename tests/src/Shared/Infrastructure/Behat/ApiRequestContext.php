@@ -30,7 +30,7 @@ final class ApiRequestContext extends RawMinkContext
     /**
      * @Given I send a :method request to :url with body:
      */
-    public function iSendRequestToWithBody($method, $url, PyStringNode $body): void
+    public function iSendARequestToWithBody($method, $url, PyStringNode $body): void
     {
         $this->request->sendRequestWithPyStringNode($method, $this->locatePath($url), $body);
     }
