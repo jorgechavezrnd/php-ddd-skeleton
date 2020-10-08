@@ -1,30 +1,45 @@
-# DDD php Skeleton
+<p align="center">
+  <a href="http://codely.tv">
+    <img src="http://codely.tv/wp-content/uploads/2016/05/cropped-logo-codelyTV.png" width="192px" height="192px"/>
+  </a>
+</p>
+
+<p align="center">Template to start from scratch a new Php project using DDD as architecture.</p>
 
 ## Installation
 
-`composer create-project codelytv/ddd-skeleton`
+Use the dependency manager [Composer](https://getcomposer.org/) to create a new project.
 
-## Usage
-`make start-local`
+```
+composer create-project codelytv/ddd-skeleton
+```
 
-# Command for create this base project
-`composer create-project codelytv/ddd-skeleton:0.4.0`
+## Usage with Docker
 
-# Command for run tests of mooc backend application
-`./vendor/bin/behat -p mooc_backend`
+Just run:
 
-# Command for add phpunit
-`composer require --dev phpunit/phpunit`
+```
+make build
+```
 
-# Command for run unit and integration tests
-`./vendor/bin/phpunit`
+Then go to `http://localhost:8030/health-check` to check all is ok.
 
-# Command for add UUID dependency
-`composer require ramsey/uuid`
+## Usage from local
 
-# Command for add faker dependency
-`composer require --dev fzaninotto/faker`
+First of all you should execute 
 
-# Commands for add doctrine dependencies
-`composer require doctrine/dbal`
-`composer require doctrine/orm`
+```
+make prepare-local
+```
+
+And then start local environment:
+
+```
+make start-local
+```
+
+And then going to `http://localhost:8030/health-check` to check all is ok.
+
+## Contributing
+There are some things missing feel free to add this if you want! If you want
+some guidelines feel free to contact us :)
