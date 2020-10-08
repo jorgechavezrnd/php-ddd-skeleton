@@ -4,27 +4,27 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Apps\Mooc\Backend\Controller\Courses;
 
-use CodelyTv\Mooc\Courses\Application\CourseCreator;
-use CodelyTv\Mooc\Courses\Application\CreateCourseRequest;
+use CodelyTv\Mooc\Courses\Application\Create\CreateCourseCommand;
+use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 final class CoursesPutController
 {
-    private $creator;
+    private $bus;
 
-    public function __construct(CourseCreator $creator)
+    public function __construct(CommandBus $bus)
     {
-        $this->creator = $creator;
+        $this->bus = $bus;
     }
 
-    public function __invoke(string $id, Request $request): Response
+    public function __invoke(string $id, Request $request)
     {
-        $this->creator->__invoke(
-            new CreateCourseRequest(
+        $this->bus->dispatch(
+            new CreateCourseCommand(
                 $id,
-                $request->get('name'),
-                $request->get('duration')
+                $request->request->get('name'),
+                $request->request->get('duration')
             )
         );
 

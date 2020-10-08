@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Apps\Mooc\Backend;
+namespace CodelyTv\Apps\Backoffice\Backend;
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 
-final class MoocBackendKernel extends Kernel
+final class BackofficeBackendKernel extends Kernel
 {
     use MicroKernelTrait;
     private const CONFIG_EXTS = '.{xml,yaml}';

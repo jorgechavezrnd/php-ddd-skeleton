@@ -19,6 +19,5 @@ services:
   CodelyTv\Tests\:
     resource: '../../../../tests/src'
 
-  # Instance selector
-  CodelyTv\Shared\Domain\RandomNumberGenerator: '@CodelyTv\Tests\Shared\Infrastructure\ConstantRandomNumberGenerator'
-#  CodelyTv\Shared\Domain\Bus\Event\EventBus: '@CodelyTv\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus'
+  # -- IMPLEMENTATIONS SELECTOR --
+  CodelyTv\Shared\Domain\Bus\Event\EventBus: '@CodelyTv\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus'
