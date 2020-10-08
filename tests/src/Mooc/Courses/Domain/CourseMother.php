@@ -4,11 +4,11 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Tests\Mooc\Courses\Domain;
 
-use CodelyTv\Mooc\Courses\Application\CreateCourseRequest;
+use CodelyTv\Mooc\Courses\Application\Create\CreateCourseCommand;
 use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseDuration;
-use CodelyTv\Mooc\Courses\Domain\CourseId;
 use CodelyTv\Mooc\Courses\Domain\CourseName;
+use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
 
 final class CourseMother
 {
@@ -17,7 +17,7 @@ final class CourseMother
         return new Course($id, $name, $duration);
     }
 
-    public static function fromRequest(CreateCourseRequest $request): Course
+    public static function fromRequest(CreateCourseCommand $request): Course
     {
         return self::create(
             CourseIdMother::create($request->id()),
@@ -28,10 +28,6 @@ final class CourseMother
 
     public static function random(): Course
     {
-        return self::create(
-            CourseIdMother::random(),
-            CourseNameMother::random(),
-            CourseDurationMother::random()
-        );
+        return self::create(CourseIdMother::random(), CourseNameMother::random(), CourseDurationMother::random());
     }
 }

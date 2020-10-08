@@ -6,21 +6,35 @@ namespace CodelyTv\Tests\Mooc\Courses;
 
 use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
-use PHPUnit\Framework\MockObject\MockObject;
-use PHPUnit\Framework\TestCase;
+use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
+use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
+use Mockery\MockInterface;
 
-abstract class CoursesModuleUnitTestCase extends TestCase
+abstract class CoursesModuleUnitTestCase extends UnitTestCase
 {
-    protected $repository;
+    private $repository;
 
     protected function shouldSave(Course $course): void
     {
-        $this->repository()->expects($this->once())->method('save')->with($course);
+        $this->repository()
+            ->shouldReceive('save')
+            ->with($this->similarTo($course))
+            ->once()
+            ->andReturnNull();
     }
 
-    /** @return CourseRepository|MockObject */
-    protected function repository(): MockObject
+    protected function shouldSearch(CourseId $id, ?Course $course): void
     {
-        return $this->repository = $this->repository ?: $this->createMock(CourseRepository::class);
+        $this->repository()
+            ->shouldReceive('search')
+            ->with($this->similarTo($id))
+            ->once()
+            ->andReturn($course);
+    }
+
+    /** @return CourseRepository|MockInterface */
+    protected function repository(): MockInterface
+    {
+        return $this->repository = $this->repository ?: $this->mock(CourseRepository::class);
     }
 }

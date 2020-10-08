@@ -4,7 +4,7 @@ Feature: Create a new course
   I want to create a new course
 
   Scenario: A valid non existing course
-    Given I send a PUT request to "/courses/de23424c-7720-436a-95f4-81a3081b1ba4" with body:
+    Given I send a PUT request to "/courses/1aab45ba-3c7a-4344-8936-78466eca77fa" with body:
     """
     {
       "name": "The best course",
