@@ -26,7 +26,7 @@ final class MinkHelper
             'files'         => [],
             'server'        => ['HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json'],
             'content'       => null,
-            'changeHistory' => true
+            'changeHistory' => true,
         ];
 
         $optionalParams = array_merge($defaultOptionalParams, $optionalParams);
