@@ -4,7 +4,10 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Mooc\Courses\Domain;
 
-final class Course
+use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
+use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
+
+final class Course extends AggregateRoot
 {
     private $id;
     private $name;
@@ -15,6 +18,15 @@ final class Course
         $this->id       = $id;
         $this->name     = $name;
         $this->duration = $duration;
+    }
+
+    public static function create(CourseId $id, CourseName $name, CourseDuration $duration): self
+    {
+        $course = new self($id, $name, $duration);
+
+        $course->record(new CourseCreatedDomainEvent($id->value(), $name->value(), $duration->value()));
+
+        return $course;
     }
 
     public function id(): CourseId
@@ -30,5 +42,10 @@ final class Course
     public function duration(): CourseDuration
     {
         return $this->duration;
+    }
+
+    public function rename(CourseName $newName): void
+    {
+        $this->name = $newName;
     }
 }

@@ -2,9 +2,11 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Mooc\Courses\Application;
+namespace CodelyTv\Mooc\Courses\Application\Create;
 
-final class CreateCourseRequest
+use CodelyTv\Shared\Domain\Bus\Command\Command;
+
+final class CreateCourseCommand implements Command
 {
     private $id;
     private $name;

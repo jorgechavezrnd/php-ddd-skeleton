@@ -5,12 +5,12 @@ declare(strict_types = 1);
 namespace CodelyTv\Mooc\Courses\Infrastructure\Persistence;
 
 use CodelyTv\Mooc\Courses\Domain\Course;
-use CodelyTv\Mooc\Courses\Domain\CourseId;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
+use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
 
 final class FileCourseRepository implements CourseRepository
 {
-    const FILE_PATH = __DIR__ . '/courses';
+    private const FILE_PATH = __DIR__ . '/courses';
 
     public function save(Course $course): void
     {
