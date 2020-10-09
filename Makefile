@@ -34,6 +34,9 @@ consume_mysql_domain_events:
 configure_rabbitmq:
 	@docker exec codelytv-php_ddd_skeleton-php php apps/mooc/backend/bin/console codelytv:domain-events:rabbitmq:configure
 
+run_specific_test_example:
+	@docker exec codelytv-php_ddd_skeleton-php ./vendor/bin/phpunit --filter it_should_publish_and_consume_domain_events_from_rabbitmq
+
 # 🐳 Docker Compose
 start: CMD=up -d
 stop: CMD=stop
