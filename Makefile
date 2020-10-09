@@ -37,6 +37,9 @@ configure_rabbitmq:
 run_specific_test_example:
 	@docker exec codelytv-php_ddd_skeleton-php ./vendor/bin/phpunit --filter it_should_publish_and_consume_domain_events_from_rabbitmq
 
+run_specific_class_with_tests_example:
+	@docker exec codelytv-php_ddd_skeleton-php ./vendor/bin/phpunit --filter RabbitMqEventBusTest
+
 # 🐳 Docker Compose
 start: CMD=up -d
 stop: CMD=stop
