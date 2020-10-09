@@ -40,6 +40,9 @@ run_specific_test_example:
 run_specific_class_with_tests_example:
 	@docker exec codelytv-php_ddd_skeleton-php ./vendor/bin/phpunit --filter RabbitMqEventBusTest
 
+generate_supervisor_files:
+	@docker exec codelytv-php_ddd_skeleton-php php apps/mooc/backend/bin/console codelytv:domain-events:rabbitmq:generate-supervisor-files
+
 # 🐳 Docker Compose
 start: CMD=up -d
 stop: CMD=stop
