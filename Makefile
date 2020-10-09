@@ -31,6 +31,9 @@ run-tests:
 consume_mysql_domain_events:
 	@docker exec codelytv-php_ddd_skeleton-php php apps/mooc/backend/bin/console codelytv:domain-events:mysql:consume 200
 
+configure_rabbitmq:
+	@docker exec codelytv-php_ddd_skeleton-php php apps/mooc/backend/bin/console codelytv:domain-events:rabbitmq:configure
+
 # 🐳 Docker Compose
 start: CMD=up -d
 stop: CMD=stop
