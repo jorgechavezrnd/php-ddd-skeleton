@@ -28,6 +28,9 @@ run-tests:
 	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests
 	./vendor/bin/behat -p mooc_backend --format=progress -v
 
+consume_mysql_domain_events:
+	@docker exec codelytv-php_ddd_skeleton-php php apps/mooc/backend/bin/console codelytv:domain-events:mysql:consume 200
+
 # 🐳 Docker Compose
 start: CMD=up -d
 stop: CMD=stop
